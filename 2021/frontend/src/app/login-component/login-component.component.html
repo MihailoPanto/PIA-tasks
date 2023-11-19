@@ -1,0 +1,28 @@
+<h2>Dobrodosli na sajt PET 2021!</h2>
+<form name="loginForm">
+    <table>
+        <tr>
+            <td>Korisnicko ime: </td>
+            <td><input name="username" type="text" [(ngModel)]="username" value={{username}}></td>
+        </tr>
+        <tr>
+            <td>Lozinka: </td>
+            <td><input name="password" type="text" [(ngModel)]="password" value={{password}}></td>
+        </tr>
+        <tr>
+            <td>Tip: </td>
+            <td>
+                <select name="select" id="" [(ngModel)]="type" value={{type}}>
+                    <option value="kupac">Kupac</option>
+                    <option value="prodavac">Prodavac</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <button (click)="login()">Uloguj se</button>
+        </tr>
+    </table>
+    <span style="color: red;">
+        {{errorMsg1}}
+    </span>
+</form>
