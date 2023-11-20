@@ -3,16 +3,16 @@
     <table>
         <tr>
             <td>Korisnicko ime: </td>
-            <td><input name="username" type="text" [(ngModel)]="username" value={{username}}></td>
+            <td><input name="username" type="text" [(ngModel)]="user.username"></td>
         </tr>
         <tr>
             <td>Lozinka: </td>
-            <td><input name="password" type="text" [(ngModel)]="password" value={{password}}></td>
+            <td><input name="password" type="password" [(ngModel)]="user.password"></td>
         </tr>
         <tr>
             <td>Tip: </td>
             <td>
-                <select name="select" id="" [(ngModel)]="type" value={{type}}>
+                <select name="select" id="" [(ngModel)]="user.type">
                     <option value="kupac">Kupac</option>
                     <option value="prodavac">Prodavac</option>
                 </select>

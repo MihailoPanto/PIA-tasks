@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
@@ -9,7 +10,7 @@ import { User } from '../models/user';
 })
 export class LoginComponentComponent implements OnInit{
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
 
   ngOnInit(): void {
   }
@@ -22,21 +23,22 @@ export class LoginComponentComponent implements OnInit{
   user: User = new User();
 
   login(){
-    console.log(this.username)
-    console.log(this.password)
-    console.log(this.type)
-    if(!this.username || !this.password || !this.type){
-      this.errorMsg1 = "Niste uneli sve potrebne podatke!";
+    if(!this.user.username || !this.user.password || !this.user.type){
+      this.errorMsg1 = "Niste 1 uneli sve potrebne podatke!";
       return;
     }
-    this.user.username = this.username;
-    this.user.password = this.password;
-    this.user.type = this.type;
     this.userService.login(this.user).subscribe(
       data=>{
         if(!data){
           this.errorMsg1 = "Nepostojeci korisnik!";
           return;
+        }
+        if(data.type == "kupac"){
+          localStorage.setItem("currentUser",JSON.stringify(data))
+          this.router.navigate(["customer"]);
+        }else{
+          localStorage.setItem("currentUser",JSON.stringify(data))
+          this.router.navigate(["worker"]);
         }
       }
     )

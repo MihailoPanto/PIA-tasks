@@ -12,6 +12,6 @@ export class UserService {
   backendUrl = "http://localhost:8080"
 
   login(u: User){
-    return this.http.post<User>(`${this.backendUrl}/user/login`,u);
+    return this.http.post<User>(`${this.backendUrl}/users/login`,u);
   }
 }

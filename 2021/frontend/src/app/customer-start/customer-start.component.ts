@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-customer-start',
   templateUrl: './customer-start.component.html',
   styleUrls: ['./customer-start.component.css']
 })
-export class CustomerStartComponent {
+export class CustomerStartComponent implements OnInit{
+  
+  ngOnInit(): void {
+    let x;
+  }
 
 }
