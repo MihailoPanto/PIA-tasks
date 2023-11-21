@@ -1,1 +1,23 @@
-<p>customer-order works!</p>
+<h3>Narudzbina</h3>
+<hr>
+<table>
+    <tr>
+        <th>Proizvod</th>
+        <th>Opis</th>
+        <th>Cena</th>
+        <th>Kolicina</th>
+        <th>Ukloni</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.numberToOrder}}</td>
+        <td><button (click)="remove(item.name)">Ukloni</button></td>
+    </tr>
+</table>
+<hr>
+<span style="color: red;">{{msg1}}</span>
+<span style="color: greenyellow;">{{msg2}}</span>
+<hr>
+<button (click)="confirm()">Naruci</button>

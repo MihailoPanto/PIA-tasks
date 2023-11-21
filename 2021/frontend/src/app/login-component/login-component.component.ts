@@ -33,11 +33,10 @@ export class LoginComponentComponent implements OnInit{
           this.errorMsg1 = "Nepostojeci korisnik!";
           return;
         }
+        localStorage.setItem("currentUser",JSON.stringify(data))
         if(data.type == "kupac"){
-          localStorage.setItem("currentUser",JSON.stringify(data))
           this.router.navigate(["customer"]);
         }else{
-          localStorage.setItem("currentUser",JSON.stringify(data))
           this.router.navigate(["worker"]);
         }
       }

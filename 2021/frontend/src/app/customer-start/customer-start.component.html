@@ -1,1 +1,23 @@
-<p>customer-start works!</p>
+<h2>Dobrodosli na pocetku stranu kupaca!</h2>
+<hr>
+<table>
+    <tr>
+        <th>Proizvod</th>
+        <th>Opis</th>
+        <th>Cena</th>
+        <th>Izaberi</th>
+        <th>Kolicina</th>
+    </tr>
+    <tr *ngFor="let item of items" [class.zel]="item.promotion==1">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+        <td><input type="checkbox" [(ngModel)]="item.toOrder"></td>
+        <td><input type="number" [(ngModel)]="item.numberToOrder"></td>
+    </tr>
+    <tr>
+        <button (click)="order()">Naruci</button>
+    </tr>
+</table>
+<hr>
+<button (click)="logout()">Odjavi se</button>

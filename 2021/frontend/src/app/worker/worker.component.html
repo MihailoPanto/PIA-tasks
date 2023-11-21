@@ -1,1 +1,32 @@
-<p>worker works!</p>
+<h2>Dobrodosli na pocetnu stranu zaposlenih!</h2>
+<hr>
+<h3>Narudzbine</h3>
+<table *ngIf="!errorMsg1">
+    <tr>
+        <th>Kupac</th>
+        <th>Datum narudzbine</th>
+        <th>Naruceni proizvodi</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+        <td>{{order.customer}}</td>
+        <td>{{order.date}}</td>
+        <td>
+            <ul>
+                <li *ngFor="let i of order.items">
+                    {{i.name}}
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<span style="color: red;">
+    {{errorMsg1}}
+</span>
+<hr>
+<h3>Najverniji kupac</h3>
+<p>{{customer.username}}</p>
+<span style="color: red;">
+    {{errorMsg2}}
+</span>
+<hr>
+<button (click)="logout()">Odjavi se</button>
