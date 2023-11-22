@@ -1,0 +1,23 @@
+<h2>Dobrodosli na pocetnu stranu Zoo2020!</h2>
+<div name="login">
+    <table>
+        <tr>
+            <td>Korisnicko ime:</td>
+            <td><input type="text" [(ngModel)]="user.username"></td>
+        </tr>
+        <tr>
+            <td>Lozinka:</td>
+            <td><input type="password" [(ngModel)]="user.password"></td>
+        </tr>
+        <tr>
+            <td>Tip:</td>
+            <td><input type="radio" name="tip" [(ngModel)]="user.type" value="radnik">Radnik</td>
+            <td><input type="radio" name="tip" [(ngModel)]="user.type" value="posetilac">Posetilac</td>
+        </tr>
+        <tr>
+            <button (click)="login()">Uloguj se</button>
+        </tr>
+    </table>
+    <span style="color: red;">{{errorMsg1}}</span>
+</div>
+

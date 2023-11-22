@@ -13,9 +13,9 @@ public class DB {
     public static DataSource source(){
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/baza");
+        ds.setUrl("jdbc:mysql://localhost:3306/zoo2020");
         ds.setUsername("root");
-        ds.setPassword("");
+        ds.setPassword("1234");
 
         return ds;
     }
