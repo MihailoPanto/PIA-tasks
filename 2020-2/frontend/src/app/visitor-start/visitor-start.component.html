@@ -1,1 +1,51 @@
-<p>visitor-start works!</p>
+<h2>Dobrodosli posetioci</h2>
+<hr>
+<h3>Pregled zivotinja</h3>
+<div>
+    <button (click)="sortAnimals()">Sortiraj</button>
+    <table>
+        <tr>
+            <th>Zivotinja</th>
+            <th>Tezina</th>
+        </tr>
+        <tr *ngFor="let animal of animals">
+            <td>{{animal.name}}</td>
+            <td>{{animal.weight}}</td>
+        </tr>
+    </table>
+</div>
+<hr>
+<h3>Glasanje za predloge</h3>
+<table>
+    <tr>
+        <th>Posetilac</th>
+        <th>Zivotinja</th>
+        <th>Komentar</th>
+        <th>Glasovi</th>
+        <th>Akcija</th>
+    </tr>
+    <tr *ngFor="let p of proposals">
+        <td>{{p.visitor}}</td>
+        <td>{{p.animal}}</td>
+        <td>{{p.comment}}</td>
+        <td>{{p.votes}}</td>
+        <td>
+            <div *ngIf="!p.approved">
+                <div *ngIf="!votes.includes(p.idP)">
+                    <button (click)="vote(p.idP)">Glasaj</button>
+                </div>  
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<h3>Davanje predloga</h3>
+Naziv zivotinje:
+<input type="text" [(ngModel)]="proposal.animal">
+<br>
+Opis predloga:
+<input type="text" [(ngModel)]="proposal.comment">
+<br>
+<button (click)="addProposal()">Dodaj predlog</button>
+<hr>
+<button (click)="logout()">Odjavi se</button>
