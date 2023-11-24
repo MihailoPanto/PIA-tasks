@@ -1,0 +1,17 @@
+<hr>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Opis</th>
+        <th>Cena</th>
+        <th>Detalji</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+        <td (click)="details(item)"><button>Detalji</button></td>
+    </tr>
+</table>
+<hr>
+<button (click)="logout()">Odjavi se</button>

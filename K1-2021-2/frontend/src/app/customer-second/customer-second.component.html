@@ -1,0 +1,21 @@
+<h3>Detalji</h3>
+<table>
+    <tr>
+        <th>Tekst</th>
+        <th>Datum</th>
+        <th>Korisnik</th>
+    </tr>
+    <tr *ngFor="let c of comments">
+        <td>{{c.text}}</td>
+        <td>{{c.date}}</td>
+        <td>{{c.user}}</td>
+    </tr>
+</table>
+<br>
+<hr>
+<h4>Unos komentara</h4>
+Tekst komentara:
+<input type="text" [(ngModel)]="comment.text">
+<br>
+<button (click)="addComment()">Potvrdi</button>
+<span style="color: red;">{{errorMsg}}</span>

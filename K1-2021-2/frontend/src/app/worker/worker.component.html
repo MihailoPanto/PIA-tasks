@@ -1,0 +1,45 @@
+<h2>Hello worker</h2>
+<hr>
+<table>
+    <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Rodjendan</th>
+    </tr>
+    <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.surname}}</td>
+        <td>{{user.birthday}}</td>
+    </tr>
+</table>
+<hr>
+<h3>Komentari</h3>
+<table>
+    <tr>
+        <th>Ime kupca</th>
+        <th>Prezime kupca</th>
+        <th>Proizvod</th>
+        <th>Tekst</th>
+        <th>Prihvati</th>
+        <th>Obrisi</th>
+    </tr>
+    <tr *ngFor="let c of comments" [class.oran]="c.state=='Neobradjeno'">
+        <td>{{c.userName}}</td>
+        <td>{{c.userSurname}}</td>
+        <td>{{c.item}}</td>
+        <td>{{c.text}}</td>
+        <td>
+            <div *ngIf="c.state=='Neobradjeno'">
+                <button (click)="accept(c)">Prihvati</button>
+            </div>
+        </td>
+        <td>
+            <div *ngIf="c.state=='Neobradjeno'">
+                <button (click)="decline(c)">Obrisi</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<button (click)="logout()">Odjavi se</button>
+

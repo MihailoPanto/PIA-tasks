@@ -1,0 +1,16 @@
+<h2>Welcome</h2>
+<hr>
+Korisnicko ime:
+<input type="text" [(ngModel)]="user.username">
+<br>
+Lozinka:
+<input type="password" [(ngModel)]="user.password">
+<br>
+Tip:
+<div>
+    <input type="radio" [(ngModel)]="user.type" name="tip" value="kupac">Kupac
+    <input type="radio" [(ngModel)]="user.type" name="tip" value="prodavac">Prodavac
+</div>
+<button (click)="login()">Uloguj se</button>
+<br>
+<span style="color: red;">{{errorMsg}}</span>
