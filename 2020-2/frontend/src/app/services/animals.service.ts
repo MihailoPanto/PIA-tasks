@@ -20,4 +20,8 @@ export class AnimalsService {
       return w1.weight - w2.weight;
     });
   }
+
+  addAnimal(a:Animal){
+    return this.http.post<number>(`${this.backendUrl}/animal/add`,a)
+  }
 }

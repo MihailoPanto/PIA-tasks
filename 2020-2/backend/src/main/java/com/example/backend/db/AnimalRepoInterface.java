@@ -6,4 +6,6 @@ import com.example.backend.models.Animal;
 
 public interface AnimalRepoInterface {
     public List<Animal> getAnimals();
+
+    public int addAnimal(Animal a);
 }

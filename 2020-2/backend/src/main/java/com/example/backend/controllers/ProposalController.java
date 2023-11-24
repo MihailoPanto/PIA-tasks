@@ -37,4 +37,15 @@ public class ProposalController {
     public int vote(@RequestBody Proposal p){
         return new ProposalRepo().vote(p);
     }
+
+    @PostMapping("approve")
+    public int approve(@RequestBody Proposal p){
+        return new ProposalRepo().approve(p);
+    }
+
+    @PostMapping("decline")
+    public int decline(@RequestBody Proposal p){
+        return new ProposalRepo().decline(p);
+    }
+
 }

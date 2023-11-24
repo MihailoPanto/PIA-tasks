@@ -32,4 +32,12 @@ export class ProposalsService {
     return this.http.post<number>(`${this.backendUrl}/proposal/vote`, data);
   }
 
+  approve(p:Proposal){
+    return this.http.post<number>(`${this.backendUrl}/proposal/approve`, p);
+  }
+
+  decline(p:Proposal){
+    return this.http.post<number>(`${this.backendUrl}/proposal/decline`, p);
+  }
+
 }

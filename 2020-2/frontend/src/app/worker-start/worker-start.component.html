@@ -1,1 +1,29 @@
-<p>worker-start works!</p>
+<h2>Hello worker!</h2>
+<h3>Glasanje za predloge</h3>
+<table>
+    <tr>
+        <th>Posetilac</th>
+        <th>Zivotinja</th>
+        <th>Komentar</th>
+        <th>Glasovi</th>
+        <th>Odobravanje</th>
+        <th>Odbijanje</th>
+    </tr>
+    <tr *ngFor="let p of proposals" [class.zel]="p.votes>2">
+        <td>{{p.visitor}}</td>
+        <td>{{p.animal}}</td>
+        <td>{{p.comment}}</td>
+        <td>{{p.votes}}</td>
+        <td>
+            <div *ngIf="!p.approved">
+                <button (click)="approve(p)">Odobri</button>
+            </div>
+        <td>
+            <div *ngIf="!p.approved">
+                <button (click)="decline(p)">Odbij</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<button (click)="logout()">Odjavi se</button>

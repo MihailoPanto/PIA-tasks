@@ -87,5 +87,31 @@ public class ProposalRepo implements ProposalRepoInterface{
         }
         return 0;
     }
+
+    @Override
+    public int approve(Proposal p) {
+        try(Connection conn = DB.source().getConnection();
+        PreparedStatement stm = conn.prepareStatement("update predlozi set odobren=1 where idP=?")){
+            stm.setInt(1, p.getIdP());
+            int val = stm.executeUpdate();
+            if(val==1) return 1;  
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return 0;
+    }
+
+    @Override
+    public int decline(Proposal p) {
+        try(Connection conn = DB.source().getConnection();
+        PreparedStatement stm = conn.prepareStatement("delete from predlozi where idP=?")){
+            stm.setInt(1, p.getIdP());
+            int val = stm.executeUpdate();
+            if(val==1) return 1;  
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return 0;
+    }
     
 }

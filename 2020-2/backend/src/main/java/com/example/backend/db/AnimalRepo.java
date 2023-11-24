@@ -25,4 +25,18 @@ public class AnimalRepo implements AnimalRepoInterface{
         }
         return null;
     }
+
+    @Override
+    public int addAnimal(Animal a) {
+        try (Connection conn = DB.source().getConnection();
+        PreparedStatement stm = conn.prepareStatement("insert into zivotinje (naziv,tezina) values (?,?)");) {
+            stm.setString(1, a.getName());
+            stm.setInt(2, a.getWeight());
+            int val=stm.executeUpdate();
+            if(val==1) return 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

@@ -14,4 +14,9 @@ public interface ProposalRepoInterface {
     public List<Integer> getVotes(User u);
 
     public int vote(Proposal p);
+
+    public int approve(Proposal p);
+
+    public int decline(Proposal p);
+
 }
