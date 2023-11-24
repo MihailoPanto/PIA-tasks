@@ -1,0 +1,15 @@
+<h3>Dobrodosli na login stranicu</h3>
+Korisnicko ime:
+<input type="text" [(ngModel)]="user.username">
+<br>
+Lozinka:
+<input type="password" [(ngModel)]="user.password">
+<br>
+Tip:
+<select name="" id="" [(ngModel)]="user.type">
+    <option value="kupac">Kupac</option>
+    <option value="prodavac">Prodavac</option>
+</select>
+<br>
+<button (click)="login()">Uloguj se</button>
+

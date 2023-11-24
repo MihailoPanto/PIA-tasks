@@ -1,0 +1,38 @@
+<h3>Prodavac</h3>
+<hr>
+<h4>Proizvodi</h4>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Cena</th>
+    </tr>
+    <tr *ngFor="let i of items">
+        <td>{{i.name}}</td>
+        <td>{{i.price}}</td>
+    </tr>
+</table>
+<input type="text" [(ngModel)]="searchParam"> |
+<button (click)="search()">Pretrazi</button>
+<hr>
+<table>
+    <tr>
+        <th>Narudzbina</th>
+        <th>Proizvod</th>
+        <th>Kolicina proizvoda</th>
+        <th>Kupac</th>
+        <th>Akcija</th>
+    </tr>
+    <tr *ngFor="let o of orders" [class.red]="o.quantity>=o.itemQuantity">
+        <td>{{o.idN}}</td>
+        <td>{{o.itemName}}</td>
+        <td>{{o.quantity}}</td>
+        <td>{{o.customer}}</td>
+        <td>
+            <div *ngIf="o.quantity<=o.itemQuantity">
+                <button (click)="approve(o)">Odobri</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<button (click)="logout()">Odjavi se</button>

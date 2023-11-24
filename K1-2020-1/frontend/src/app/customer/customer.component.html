@@ -1,0 +1,20 @@
+<h3>Kupac</h3>
+<hr>
+<h4>Proizvodi</h4>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Cena</th>
+        <th>Kolicina</th>
+        <th>Izaberi</th>
+    </tr>
+    <tr *ngFor="let i of items">
+        <td>{{i.name}}</td>
+        <td>{{i.price}}</td>
+        <td><input type="number" [(ngModel)]="i.wantedQuantity"></td>
+        <td><input type="checkbox" [(ngModel)]="i.checked"></td>
+    </tr>
+</table>
+<button (click)="order()">Naruci</button>
+<hr>
+<button (click)="logout()">Odjavi se</button>
