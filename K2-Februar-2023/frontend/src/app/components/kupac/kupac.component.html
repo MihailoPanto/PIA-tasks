@@ -1,0 +1,30 @@
+Ime: {{korisnik.ime}}
+<br>
+Prezime: {{korisnik.prezime}}
+<br>
+Mejl: {{korisnik.mejl}}
+<br>
+<hr>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Kategorija</th>
+        <th>Cena</th>
+        <th>Stanje</th>
+        <th>Izaberi</th>
+    </tr>
+    <tr *ngFor="let p of proizvodi">
+        <td>{{p.naziv}}</td>
+        <td>{{p.kategorija}}</td>
+        <td>{{p.cena}}</td>
+        <td>{{p.stanje}}</td>
+        <td>
+            <input type="checkbox" name="" id="" [disabled]="p.stanje==0" [(ngModel)]="p.izabran"> 
+        </td>
+    </tr>
+</table>
+<button (click)="order()">Poruci</button>
+<br>
+<span style="color: red;">{{error1}}</span>
+<hr>
+<button (click)="logout()">Odjavi se</button>

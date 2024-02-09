@@ -1,0 +1,21 @@
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Kategorija</th>
+        <th>Cena</th>
+        <th>Stanje</th>
+        <th>Kolicina</th>
+    </tr>
+    <tr *ngFor="let p of proizvodi">
+        <td>{{p.naziv}}</td>
+        <td>{{p.kategorija}}</td>
+        <td>{{p.cena}}</td>
+        <td>{{p.stanje}}</td>
+        <td>
+            <input type="number" name="" id="" [(ngModel)]="p.kolicina">
+        </td>
+    </tr>
+</table>
+<button (click)="order()">Gotovo</button>
+<br>
+<span style="color: red;">{{error1}}</span>

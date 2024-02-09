@@ -1,0 +1,44 @@
+<table>
+    <tr>
+        <th>KUpac</th>
+        <th>Proizvodi</th>
+        <th>Cena</th>
+        <th>Iznos</th>
+    </tr>
+    <tr *ngFor="let o of orders"   [class.green]="o.velicina=='green'" [class.red]="o.velicina=='red'">
+        <td>{{o.kupac}}</td>
+        <td>
+            <ul>
+                <li *ngFor="let p of o.proizvodi">
+                    {{p.naziv}} - kolicna - {{p.kolicina}}
+                </li>
+            </ul>
+        </td>
+        <td>{{o.racun}}</td>
+    </tr>
+</table>
+<hr>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Kategorija</th>
+        <th>Cena</th>
+        <th>Stanje</th>
+        <th>Dodaj kolicinu</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr *ngFor="let p of proizvodi, let i = index">
+        <td>{{p.naziv}}</td>
+        <td>{{p.kategorija}}</td>
+        <td>{{p.cena}}</td>
+        <td>{{p.stanje}}</td>
+        <td>
+            <input type="number" name="" id="" [(ngModel)]="kolicine[i]"> 
+        </td>
+        <td>
+            <button (click)="add(i)">Dodaj</button>
+        </td>
+    </tr>
+</table>
+<hr>
+<button (click)="logout()">Odjavi se</button>
