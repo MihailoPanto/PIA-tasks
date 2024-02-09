@@ -1,0 +1,19 @@
+<table>
+    <tr>
+        <th>Umetnina</th>
+        <th>Najveca ponuda</th>
+        <th>Vasa ponuda</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr *ngFor="let u of auction.umetnine, let i = index">
+        <td>{{u.naziv}}</td>
+        <td>{{u.ponuda}}</td>
+        <td>
+            <input type="number" name="" id="" [(ngModel)]="newBid[i]">
+        </td>
+        <td>
+            <button (click)="bid(i)">Ponudi</button>
+        </td>
+    </tr>
+</table>
+<span style="color: red;">{{errorMsg}}</span>

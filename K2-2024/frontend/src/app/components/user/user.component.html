@@ -1,0 +1,111 @@
+<table>
+    <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>E-mail adresa</th>
+    </tr>
+    <tr>
+        <td>{{user.ime}}</td>
+        <td>{{user.prezime}}</td>
+        <td>{{user.mejl}}</td>
+    </tr>
+</table>
+<hr>
+<h2>Izmena podataka</h2>
+<table>
+    <tr>
+        <td>Ime</td>
+        <td>Prezime</td>
+        <td>E-mail adresa</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="firstname" id="" [(ngModel)]="firstname">
+        </td>
+        <td>
+            <input type="text" name="lastname" id="" [(ngModel)]="lastname">
+        </td>
+        <td>
+            <input type="text" name="email" id="" [(ngModel)]="email">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <button (click)="changeInfo()">Izmeni</button>
+        </td>
+    </tr>
+</table>
+<span style="color: red;">{{error1}}</span>
+<hr>
+
+<h2>Predstojece proslave</h2>
+<table>
+    <tr>
+        <td>Naziv</td>
+        <td>Mesto</td>
+        <td>Organizator</td>
+        <td>Datum</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr *ngFor="let e of futureEvents" [class.orange]="user.prijatelji.includes(e.organizator)">
+        <td>{{e.naziv}}</td>
+        <td>{{e.mesto}}</td>
+        <td>{{e.organizator}}</td>
+        <td>{{e.datum}}</td>
+        <td *ngIf="user.prijatelji.includes(e.organizator)">
+            <button (click)="seeDetails(e)">
+                Pregled
+            </button>
+        </td>
+    </tr>
+</table>
+<hr>
+<table>
+    <tr>
+        <td>Naziv</td>
+        <td>Datum</td>
+        <td>Broj gostiju</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr *ngFor="let e of userEvents">
+        <td>{{e.naziv}}</td>
+        <td>{{e.datum}}</td>
+        <td>{{e.dolazi.length}}</td>
+        <td *ngIf="e.show==true">
+           <button (click)="removeEvent(e.naziv,e.datum)">Otkazi</button>
+        </td>
+    </tr>
+</table>
+<hr>
+<h2>Pravljenje nove proslave</h2>
+<table>
+    <tr>
+        <td>Naziv</td>
+        <td>
+            <input type="text" name="name" id="" [(ngModel)]="newName">
+        </td>
+    </tr>
+    <tr>
+        <td>Mesto</td>
+        <td>
+            <input type="text" name="place" id="" [(ngModel)]="newPlace">
+        </td>
+    </tr>
+    <tr>
+        <td>Datum</td>
+        <td>
+            <input type="date" name="date" id="" [(ngModel)]="newDate">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="makeEvent()">Dodaj proslavu</button>
+        </td>
+    </tr>
+</table>
+<span style="color: blue;">{{text}}</span>
+<span style="color: red;">{{err2}}</span>
+
+
+<hr>
+<button (click)="logout()">Odjavi se</button>

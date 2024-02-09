@@ -1,0 +1,48 @@
+Ime: {{user.ime}}
+<br>
+Prezime: {{user.prezime}}
+<br>
+Mejl: {{user.mejl}}
+<br>
+<hr>
+<table>
+    <tr>
+        <th>Naziv aukcije</th>
+        <th>Pocetak aukcije</th>
+        <th>Kraj aukcije</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr *ngFor="let a of openAuctions">
+        <td>
+            <a style="color: blue; text-decoration: underline;" (click)="auction(a)">{{a.naziv}}</a>
+        </td>
+        <td>{{a.pocetak}}</td>
+        <td>{{a.kraj}}</td>
+    </tr>
+</table>
+<hr>
+<table *ngIf="umetnine.length!=0">
+    <tr>
+        <th>Umetnina</th>
+        <th>Cena</th>
+    </tr>
+    <tr *ngFor="let a of mineAuctions">
+        <td>
+           <ul *ngFor="let u of a.umetnine">
+            <li *ngIf="u.vlasnik==user.korisnicko_ime">
+                {{u.naziv}}
+            </li>
+           </ul> 
+        </td>
+        <td>
+            <ul *ngFor="let u of a.umetnine">
+                <li *ngIf="u.vlasnik==user.korisnicko_ime">
+                    {{u.ponuda}}
+                </li>
+               </ul> 
+        </td>
+    </tr>
+</table>
+<span *ngIf="umetnine.length==0" style="color: blue;">Nema kupljenih umetnina</span>
+<hr>
+<button (click)="logout()">Odjavi se</button>

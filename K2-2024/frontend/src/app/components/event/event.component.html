@@ -1,0 +1,29 @@
+<table>
+    <tr>
+        <td>Naziv</td>
+        <td>{{event.naziv}}</td>
+    </tr>
+    <tr>
+        <td>Mesto</td>
+        <td>{{event.mesto}}</td>
+    </tr>
+    <tr>
+        <td>Organizator</td>
+        <td>{{event.organizator}}</td>
+    </tr>
+    <tr>
+        <td>Datum</td>
+        <td>{{event.datum}}</td>
+    </tr>
+    <tr>
+        <td>Dolaze</td>
+        <td>
+            <ul>
+                <li *ngFor="let o of event.dolazi">
+                    <span>{{o.korisnik}}</span>
+                    <span *ngIf="o.posluzenje!=''">&nbsp; donosi &nbsp;{{o.posluzenje}}</span>
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>

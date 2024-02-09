@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>Naziv aukcije</th>
+        <th>Pocetak aukcije</th>
+        <th>Kraj aukcije</th>
+        <th>Prodate umetnine</th>
+    </tr>
+    <tr *ngFor="let a of allAuctions" [class.red]="a.istekla" [class.green]="!a.istekla">
+        <td>{{a.naziv}}</td>
+        <td>{{a.pocetak}}</td>
+        <td>{{a.kraj}}</td>
+        <td>
+            <ul style="list-style-type: none;" *ngIf="a.istekla">
+                <li *ngFor="let u of a.umetnine">
+                    <p *ngIf="u.vlasnik">{{u.naziv}}-{{u.vlasnik}}-{{u.ponuda}}</p>
+                </li>
+            </ul>
+        </td>
+
+
+    </tr>
+</table>
